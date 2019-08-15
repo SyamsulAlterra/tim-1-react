@@ -1,30 +1,30 @@
-        <div class="statistic border">
-        <table class="table table-bordered">
-          <tbody>
-            <tr>
-              <td>
-                <img src={this.state.logo1} alt="" />
-                <p>2018 Performance</p>
-                <p>Win: win</p>
-                <p>Lose: lose</p>
-                <p>Goal Scored: GS</p>
-                <p>Goal Conceded: GC</p>
-              </td>
-              <td>
-                <h1 onClick={this.getData}>Last 5 Matches</h1>
-                {this.state.h2h.map(match => {
-                  return <H2h match={match} />;
-                })}
-              </td>
-              <td>
-                <img src={this.state.logo2} alt="" />
-                <p>2018 Performance</p>
-                <p>Win: win</p>
-                <p>Lose: lose</p>
-                <p>Goal Scored: GS</p>
-                <p>Goal Conceded: GC</p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+<div class="statistic border">
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <td>
+            <img src={this.state.logo1} alt="" />
+            <p>2018 Performance</p>
+            <p>Win: win</p>
+            <p>Lose: lose</p>
+            <p>Goal Scored: GS</p>
+            <p>Goal Conceded: GC</p>
+            </td>
+            <td>
+            <h1 onClick={this.getData}>Last 5 Matches</h1>
+            {this.state.h2h.map(match => {
+                return <H2h match={match} />;
+            })}
+            </td>
+            <td>
+            <img src={this.state.logo2} alt="" />
+            <p>2018 Performance</p>
+            <p>Win: win</p>
+            <p>Lose: lose</p>
+            <p>Goal Scored: GS</p>
+            <p>Goal Conceded: GC</p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

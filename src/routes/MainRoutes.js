@@ -8,7 +8,7 @@ import Body from "../pages/Body";
 //import store
 import { Provider } from "unistore/react";
 import { store } from "../store";
-import FiveMatch from "../components/FiveMatch";
+import Statistics from "../components/Statistics";
 
 // import pages and component
 
@@ -17,12 +17,11 @@ function MainRoutes() {
     <Router>
       <Provider store={store}>
         <div>
+          <Header />
           <Switch>
-
             <Route exact path="/" component={Body} />
 
-            <Route exact path="/Statistic" component={FiveMatch} />
-
+            <Route exact path="/Statistic" component={Statistics} />
           </Switch>
         </div>
       </Provider>

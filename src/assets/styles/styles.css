@@ -1,4 +1,3 @@
-
 .shadow {
   -webkit-box-shadow: 1px 4px 5px 0px #abc3c4;
   -moz-box-shadow: 1px 4px 5px 0px #abc3c4;
@@ -8,7 +7,7 @@
   -webkit-box-shadow: 1px 4px 5px 0px #abc3c4;
   -moz-box-shadow: 1px 4px 5px 0px #abc3c4;
   box-shadow: 1px 4px 5px 0px #abc3c4;
-
+}
 .statistic {
   margin: 20px auto;
 }
@@ -30,5 +29,4 @@
 .h2h img {
   width: 30px;
   height: 30px;
-
 }
