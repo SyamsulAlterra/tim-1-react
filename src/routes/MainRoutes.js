@@ -2,6 +2,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
+import Header from "../components/Header";
+import Body from "../pages/Body";
 
 //import store
 import { Provider } from "unistore/react";
@@ -16,7 +18,11 @@ function MainRoutes() {
       <Provider store={store}>
         <div>
           <Switch>
-            <Route exact path="/" component={FiveMatch} />
+
+            <Route exact path="/" component={Body} />
+
+            <Route exact path="/Statistic" component={FiveMatch} />
+
           </Switch>
         </div>
       </Provider>
