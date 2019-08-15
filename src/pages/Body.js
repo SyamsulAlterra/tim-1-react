@@ -25,6 +25,9 @@ class Body extends React.Component {
             <div className="col-md-5">
               <News />
             </div>
+            <div>
+              <canvas id="myChart" width="400" height="400" />
+            </div>
           </div>
         </div>
       </div>

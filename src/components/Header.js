@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../assets/styles/styles.css";
+import Swal from "sweetalert2";
+
+const handleSearch = e => {
+  Swal.fire("Good job!", "We will Show your wish!", "success");
+};
 
 export default function Header(props) {
   return (
@@ -34,7 +39,7 @@ export default function Header(props) {
                   <button
                     class="btn btn-outline-info my-2 my-sm-0"
                     type="submit"
-                    // onSubmit = {props.handleChange}
+                    onClick={props.handleSearch}
                   >
                     <i class="icon-search" />
                   </button>

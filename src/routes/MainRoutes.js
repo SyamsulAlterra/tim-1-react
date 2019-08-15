@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
 import Header from "../components/Header";
 import Body from "../pages/Body";
+import Swal from "sweetalert2";
 
 //import store
 import { Provider } from "unistore/react";
@@ -11,19 +12,35 @@ import { store } from "../store";
 
 // import pages and component
 
-function MainRoutes() {
-  return (
-    <Router>
-      <Provider store={store}>
-        <div>
-          <Header />
-          <Switch>
-            <Route exact path="/" component={Body} />
-          </Switch>
-        </div>
-      </Provider>
-    </Router>
-  );
+class MainRoutes extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  handleSearch = () => {
+    Swal.fire({
+      position: "top-end",
+      type: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1500
+    });
+  };
+
+  render() {
+    return (
+      <Router>
+        <Provider store={store}>
+          <div>
+            <Header handleSearch={this.handleSearch} />
+            <Switch>
+              <Route exact path="/" component={Body} />
+            </Switch>
+          </div>
+        </Provider>
+      </Router>
+    );
+  }
 }
 
 export default MainRoutes;
