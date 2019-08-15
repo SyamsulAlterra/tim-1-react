@@ -42,8 +42,8 @@ class Statistics extends React.Component {
   }
 
   getTeam = async () => {
-    let date = "/2019-08-24";
-    let code = "/" + this.state["serieA"][0].toString();
+    let date = "/2019-08-18";
+    let code = "/" + this.state["laLiga"][0].toString();
     let url =
       "https://api-football-v1.p.rapidapi.com/v2/fixtures/league" + code + date;
 
@@ -77,12 +77,20 @@ class Statistics extends React.Component {
         }
       })
       .then(response => {
-        this.setState({ h2h: response.data.api.fixtures.slice(0, 5) });
+        let data = response.data.api.fixtures.filter(m => {
+          return m.status == "Match Finished";
+        });
+
+        if (data < 5) {
+          this.setState(data);
+        } else {
+          this.setState({ h2h: data.slice(0, 5) });
+        }
       });
   };
 
   getRecord1 = async () => {
-    let code2 = "/" + this.state["serieA"][1].toString();
+    let code2 = "/" + this.state["laLiga"][1].toString();
     let url =
       "https://api-football-v1.p.rapidapi.com/v2/statistics" +
       code2 +
@@ -101,7 +109,7 @@ class Statistics extends React.Component {
   };
 
   getRecord2 = async () => {
-    let code2 = "/" + this.state["serieA"][1].toString();
+    let code2 = "/" + this.state["laLiga"][1].toString();
     let b = "/" + this.state.id2.toString();
     let url =
       "https://api-football-v1.p.rapidapi.com/v2/statistics" + code2 + b;
@@ -127,7 +135,7 @@ class Statistics extends React.Component {
   render() {
     // console.log(this.state.h2h);
     // console.log(this.state.stat1);
-    console.log(this.state.stat2);
+    console.log(this.state.h2h);
 
     return (
       <div class="statistic border">
@@ -146,7 +154,7 @@ class Statistics extends React.Component {
                 </p>
               </td>
               <td>
-                <h1 onClick={this.getData}>Last 5 Matches</h1>
+                <h1 onClick={this.getData}>Head 2 Head</h1>
                 {this.state.h2h.map(match => {
                   return <H2h match={match} />;
                 })}
