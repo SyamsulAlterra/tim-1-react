@@ -1,4 +1,5 @@
 import createStore from "unistore";
+import axios from "axios";
 
 const initialState = {
   nama: "",
@@ -6,15 +7,31 @@ const initialState = {
   avatar: "",
   isLogin: null,
   listMovies: [],
-  listMoviesByCategory: []
+  listMoviesByCategory: [],
+  news: []
 };
 
-let store = createStore(initialState);
+export let store = createStore(initialState);
 
-let actions = store => ({
+export let actions = store => ({
   setNama(state, namaInput) {
     return { nama: namaInput };
   },
+
+  getData: state => {
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=id&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
+      )
+      .then(response => {
+        store.setState({ news: response.data.articles });
+        console.log(response);
+      })
+      .catch(error => {
+        console.log("Terdapat error di get data :", error);
+      });
+  },
+
   setAvatar(state, namaInput) {
     return { avatar: namaInput };
   },
@@ -37,4 +54,4 @@ let actions = store => ({
   }
 });
 
-export { store, actions };
+// export { store, actions };
