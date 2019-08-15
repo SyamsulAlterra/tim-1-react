@@ -11,3 +11,12 @@
   vertical-align: middle;
   padding: 0px;
 }
+.h2h {
+  width: 100% !important;
+  height: 20px !important;
+  font-size: 20px;
+}
+.h2h img {
+  width: 30px;
+  height: 30px;
+}
