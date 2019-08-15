@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "unistore/react";
 import { actions } from "../store";
+import Button from "./Button";
+import { withRouter } from "react-router-dom";
 
 class UpcomingMatch extends React.Component {
   constructor(props) {
@@ -20,11 +22,19 @@ class UpcomingMatch extends React.Component {
     };
 
     let s = new Date(timestamp * 1000).toLocaleDateString("en-US", options);
+    // this.props.addDateList(s);
     return s;
   }
   //   onMouseEnter, onMouseLeave
 
+  handleClick = async value => {
+    await this.props.setMatchDate(value);
+    console.log(this.props.matchDate);
+    this.props.history.push("/tes");
+  };
+
   render() {
+    console.log(this.props.matchDate);
     return (
       <div>
         <div className="container">
@@ -43,7 +53,13 @@ class UpcomingMatch extends React.Component {
                   {this.changeTimeStamp(value.commence_time)}{" "}
                 </div>
                 <div className="col-2 text-left">
-                  <button className="btn btn-primary">See More</button>
+                  <Button
+                    value={this.changeTimeStamp(value.commence_time)}
+                    onClick={this.handleClick}
+                  />
+                  {/* <button className="btn btn-primary" value={this.props.dateLis[this.props.dateList.length-1]}>
+                    See More
+                  </button> */}
                 </div>
               </div>
             );
@@ -54,4 +70,7 @@ class UpcomingMatch extends React.Component {
   }
 }
 
-export default UpcomingMatch;
+export default connect(
+  "matchDate",
+  actions
+)(withRouter(UpcomingMatch));
