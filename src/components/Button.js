@@ -4,7 +4,7 @@ import { actions } from "../store";
 
 class Button extends React.Component {
   handleClick = () => {
-    this.props.onClick(this.props.value);
+    this.props.onClick(this.props.value, this.props.homeTeam);
   };
 
   render() {
