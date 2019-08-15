@@ -8,19 +8,38 @@ const initialState = {
   isLogin: null,
   listMovies: [],
   listMoviesByCategory: [],
+
   hostBetting: "https://api.the-odds-api.com/v3/odds/?region=uk&mkt=h2h",
   apikeyBetting: "&apiKey=72bc0d66cf1557bc13b37a07304a0a6f&sport=",
   listMatch: {
     soccer_epl: []
   }
+
+  news: []
+
 };
 
-let store = createStore(initialState);
+export let store = createStore(initialState);
 
-let actions = store => ({
+export let actions = store => ({
   setNama(state, namaInput) {
     return { nama: namaInput };
   },
+
+  getData: state => {
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=id&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
+      )
+      .then(response => {
+        store.setState({ news: response.data.articles });
+        console.log(response);
+      })
+      .catch(error => {
+        console.log("Terdapat error di get data :", error);
+      });
+  },
+
   setAvatar(state, namaInput) {
     return { avatar: namaInput };
   },
@@ -65,4 +84,4 @@ let actions = store => ({
   }
 });
 
-export { store, actions };
+// export { store, actions };
