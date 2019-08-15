@@ -11,17 +11,28 @@ import { store } from "../store";
 import Statistics from "../components/Statistics";
 
 // import pages and component
+import Betting from "../pages/Betting.js";
+
+
+//temp
+import BetCard from "../components/BetCard";
+
+
 
 function MainRoutes() {
   return (
     <Router>
       <Provider store={store}>
         <div>
-          <Header />
           <Switch>
+
+            <Route exact path="/betting" component={Betting} />
+            {/* <Route exact path="/" component={BetCard} /> */}
+
             <Route exact path="/" component={Body} />
 
             <Route exact path="/Statistic" component={Statistics} />
+
           </Switch>
         </div>
       </Provider>
