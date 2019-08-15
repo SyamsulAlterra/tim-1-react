@@ -8,15 +8,19 @@ import { Provider } from "unistore/react";
 import { store } from "../store";
 
 // import pages and component
+import Betting from "../pages/Betting.js";
 
+//temp
+import BetCard from "../components/BetCard";
 
 function MainRoutes() {
   return (
     <Router>
       <Provider store={store}>
         <div>
-          <Header />
           <Switch>
+            <Route exact path="/" component={Betting} />
+            {/* <Route exact path="/" component={BetCard} /> */}
           </Switch>
         </div>
       </Provider>
