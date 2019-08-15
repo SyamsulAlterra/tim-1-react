@@ -12,6 +12,11 @@ class Body extends React.Component {
   constructor(props) {
     super(props);
   }
+  handleDefault = () => {
+    if (this.props.match.params.endpoint === "home") {
+      this.props.setDefaultSearch();
+    }
+  };
 
   componentWillMount = () => {
     this.props.getData();

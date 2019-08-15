@@ -8,7 +8,8 @@ const initialState = {
   isLogin: null,
   listMovies: [],
   listMoviesByCategory: [],
-  news: []
+  news: [],
+  search: ""
 };
 
 export let store = createStore(initialState);
@@ -16,6 +17,14 @@ export let store = createStore(initialState);
 export let actions = store => ({
   setNama(state, namaInput) {
     return { nama: namaInput };
+  },
+
+  setSearch: (state, event) => {
+    store.setState({ search: event.target.value });
+  },
+
+  setDefaultSearch: state => {
+    store.setState({ search: "" });
   },
 
   getData: state => {

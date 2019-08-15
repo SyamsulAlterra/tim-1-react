@@ -5,6 +5,8 @@ import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
 import Header from "../components/Header";
 import Body from "../pages/Body";
 import Swal from "sweetalert2";
+import { actions } from "../store";
+import { connect } from "unistore/react";
 
 //import store
 import { Provider } from "unistore/react";
@@ -32,8 +34,12 @@ class MainRoutes extends React.Component {
       <Router>
         <Provider store={store}>
           <div>
-            <Header handleSearch={this.handleSearch} />
+            <Header
+              handleSearch={this.handleSearch}
+              handleDefault={this.props.getSearch}
+            />
             <Switch>
+              <Route exact path="/:endpoint" component={Body} />
               <Route exact path="/" component={Body} />
             </Switch>
           </div>
@@ -43,4 +49,7 @@ class MainRoutes extends React.Component {
   }
 }
 
-export default MainRoutes;
+export default connect(
+  "news, search",
+  actions
+)(MainRoutes);
