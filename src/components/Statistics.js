@@ -7,7 +7,7 @@ class Statistics extends React.Component {
     super(props);
     this.state = {
       serieA: [891, 94],
-      epl: [529, 2],
+      epl: [524, 2],
       laLiga: [775, 87],
       ligue1: 525,
       logo1: "",
@@ -42,8 +42,8 @@ class Statistics extends React.Component {
   }
 
   getTeam = async () => {
-    let date = "/2019-08-18";
-    let code = "/" + this.state["laLiga"][0].toString();
+    let date = "/2019-08-17";
+    let code = "/" + this.state["epl"][0].toString();
     let url =
       "https://api-football-v1.p.rapidapi.com/v2/fixtures/league" + code + date;
 
@@ -90,7 +90,7 @@ class Statistics extends React.Component {
   };
 
   getRecord1 = async () => {
-    let code2 = "/" + this.state["laLiga"][1].toString();
+    let code2 = "/" + this.state["epl"][1].toString();
     let url =
       "https://api-football-v1.p.rapidapi.com/v2/statistics" +
       code2 +
@@ -109,7 +109,7 @@ class Statistics extends React.Component {
   };
 
   getRecord2 = async () => {
-    let code2 = "/" + this.state["laLiga"][1].toString();
+    let code2 = "/" + this.state["epl"][1].toString();
     let b = "/" + this.state.id2.toString();
     let url =
       "https://api-football-v1.p.rapidapi.com/v2/statistics" + code2 + b;

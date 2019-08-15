@@ -13,10 +13,10 @@ const initialState = {
   apikeyBetting: "&apiKey=72bc0d66cf1557bc13b37a07304a0a6f&sport=",
   listMatch: {
     soccer_epl: []
-  }
+  },
 
-  news: []
-
+  news: [],
+  matchDate: ""
 };
 
 export let store = createStore(initialState);
@@ -81,6 +81,9 @@ export let actions = store => ({
       .catch(error => {
         console.log("getDatabetting", error);
       });
+  },
+  setMatchDate(state, value) {
+    return { matchDate: value };
   }
 });
 
