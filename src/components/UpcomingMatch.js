@@ -24,7 +24,6 @@ class UpcomingMatch extends React.Component {
     let s = new Date(timestamp * 1000).toLocaleDateString("en-US", options);
     return s;
   }
-  //   onMouseEnter, onMouseLeave
 
   handleClick = async (value, home) => {
     await this.props.setMatchDate(value);
@@ -34,43 +33,73 @@ class UpcomingMatch extends React.Component {
   };
 
   render() {
-    return (
-      <div>
-        <div className="container">
-          <div className="row">
-            <div className="col-12 border">
-              <h3>Upcoming Match</h3>
-            </div>
-          </div>
-          {this.props.data.map((value, index) => {
-            return (
-              <div className="row border hvr-fade" id="upcom-match" key={index}>
-                <div className="col-3 text-right pt-2">{value.teams[0]}</div>
-                <div className="col-1 text-center pt-2">VS</div>
-                <div className="col-3 text-left pt-2">{value.teams[1]}</div>
-                <div className="col-3 text-left pt-2">
-                  {this.changeTimeStamp(value.commence_time)}{" "}
-                </div>
-                <div className="col-2 text-left">
-                  <Button
-                    value={this.changeTimeStamp(value.commence_time)}
-                    homeTeam={value.home_team}
-                    onClick={this.handleClick}
-                  />
-                  {/* <button className="btn btn-primary" value={this.props.dateLis[this.props.dateList.length-1]}>
-                    See More
-                  </button> */}
-                </div>
+    console.log(this.props.upcomingMatch);
+    if (this.props.upcomingMatch.length == 0) {
+      return <div> </div>;
+    } else {
+      return (
+        <div>
+          <div className="container">
+            <div className="row">
+              <div className="col-12 border">
+                <h3>Upcoming Match</h3>
               </div>
-            );
-          })}
+            </div>
+
+            {this.props.upcomingMatch.map((value, index) => {
+              return (
+                <div
+                  className="row border hvr-fade"
+                  id="upcom-match"
+                  key={index}
+                >
+                  <div className="col-3 text-right pt-2">{value.teams[0]}</div>
+                  <div className="col-1 text-center pt-2">VS</div>
+                  <div className="col-3 text-left pt-2">{value.teams[1]}</div>
+                  <div className="col-3 text-left pt-2">
+                    {this.changeTimeStamp(value.commence_time)}{" "}
+                  </div>
+                  <div className="col-2 text-left">
+                    <Button value={this.changeTimeStamp(value.commence_time)}
+                    homeTeam={value.home_team}
+                    onClick={this.handleClick}/>
+                  </div>
+
+//           </div>
+//           {this.props.data.map((value, index) => {
+//             return (
+//               <div className="row border hvr-fade" id="upcom-match" key={index}>
+//                 <div className="col-3 text-right pt-2">{value.teams[0]}</div>
+//                 <div className="col-1 text-center pt-2">VS</div>
+//                 <div className="col-3 text-left pt-2">{value.teams[1]}</div>
+//                 <div className="col-3 text-left pt-2">
+//                   {this.changeTimeStamp(value.commence_time)}{" "}
+//                 </div>
+//                 <div className="col-2 text-left">
+//                   <Button
+                    
+//                   />
+//                   {/* <button className="btn btn-primary" value={this.props.dateLis[this.props.dateList.length-1]}>
+//                     See More
+//                   </button> */}
+
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
 export default connect(
-  "matchDate",
+
+  "upcomingMatch",
+  actions
+)(UpcomingMatch);
+
+  "matchDate,upcomingMatch",
   actions
 )(withRouter(UpcomingMatch));
+
