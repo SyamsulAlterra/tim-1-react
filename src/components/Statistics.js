@@ -41,7 +41,8 @@ class Statistics extends React.Component {
         }
       },
       apikey: "5e0c95653cmsh4cd85871915e19ep1294ccjsndd303cb4ef96",
-      target: {}
+      target: {},
+      eventDate: ""
     };
   }
 
@@ -85,6 +86,9 @@ class Statistics extends React.Component {
 
         await this.props.setTeam1(filteredData[0].homeTeam.logo);
         await this.props.setTeam2(filteredData[0].awayTeam.logo);
+        await this.setState({
+          eventDate: filteredData[0].event_date.slice(0, 10)
+        });
 
         this.setState({
           logo1: filteredData[0].homeTeam.logo,
@@ -189,7 +193,8 @@ class Statistics extends React.Component {
                 </p>
               </td>
               <td>
-                <h1>Recent Matches</h1>
+                <h1>{this.state.eventDate}</h1>
+                <h4>Recent Matches</h4>
                 {this.state.h2h.map(match => {
                   return <H2h match={match} />;
                 })}
