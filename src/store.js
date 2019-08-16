@@ -28,6 +28,9 @@ const initialState = {
   upcomingIndex: [],
   upcomingMatch: [],
   commenceTimeNow: "",
+  formBet: "",
+  betOption: 0,
+  betLabel: "win",
 
   news: [],
   newsIndex: 0,
@@ -50,6 +53,20 @@ export let actions = store => ({
   },
   setNama(state, namaInput) {
     return { nama: namaInput };
+  },
+  setbetOption(state, betOptionInput) {
+    return { betOption: betOptionInput };
+  },
+  setbetLabel(state, betOptionInput) {
+    let tempLabel;
+    if (betOptionInput === 0) {
+      tempLabel = "win";
+    } else if (betOptionInput === 1) {
+      tempLabel = "draw";
+    } else {
+      tempLabel = "lose";
+    }
+    return { betLabel: tempLabel };
   },
 
   async getData(state) {
@@ -198,6 +215,9 @@ export let actions = store => ({
   },
   setHomeTeam(state, team) {
     return { homeTeam: team };
+  },
+  setformBet(state, value) {
+    return { formBet: value };
   }
 });
 

@@ -1,4 +1,6 @@
 import React from "react";
+import { actions } from "../store";
+import { connect } from "unistore/react";
 
 import juve from "../assets/img/juve.png";
 import arsenal from "../assets/img/arsenal.jpg";
@@ -34,14 +36,24 @@ class BetCard extends React.Component {
                 <h3>{this.props.data.odds.h2h[1]}</h3>
               </div>
             </div>
-            <br />
-            <div className="row">
-              <div className="col-4 text-center">
+
+          </div>
+          <br />
+          <div className="row  border-bottom">
+            <div className="col-4 text-center">
                 <img width="100%" src={this.props.tim_2} />
-              </div>
-              <div className="col-5">
-                <h3>{this.props.data.odds.h2h[2]}</h3>
-              </div>
+            </div>
+            <div className="col-5">
+              <h3>{props.data.odds.h2h[2]}</h3>
+  
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4 text-center">
+              <h2>return</h2>
+            </div>
+            <div className="col-5">
+              <h3>{props.formBet * props.data.odds.h2h[props.betOption]}</h3>
             </div>
           </div>
         </div>
@@ -49,7 +61,9 @@ class BetCard extends React.Component {
     );
   }
 }
+
+
 export default connect(
-  "tim_1, tim_2",
+  "formBet, betOption, tim_1, tim_2",
   actions
 )(BetCard);
