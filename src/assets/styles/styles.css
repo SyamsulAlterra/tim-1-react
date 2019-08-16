@@ -150,6 +150,10 @@ a {
   width: 300px;
   height: 300px;
 }
+
+.emoji {
+  margin-top: 100px;
+}
 .upcoming {
   height: 534px !important;
   overflow: scroll;

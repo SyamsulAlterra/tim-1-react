@@ -52,7 +52,6 @@ class UpcomingMatch extends React.Component {
                 <h3>Upcoming Match</h3>
               </div>
             </div>
-
             <div>
               {this.props.upcomingMatch.map((value, index) => {
                 return (

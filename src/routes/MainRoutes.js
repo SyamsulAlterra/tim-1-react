@@ -23,6 +23,9 @@ import LoginForm from "../components/LoginForm";
 
 import Tes from "../components/Tes";
 
+import NoMatch from "../pages/Nomatch";
+
+
 import Profil from "../pages/Profile";
 function MainRoutes() {
   return (
@@ -43,6 +46,7 @@ function MainRoutes() {
             <Route exact path="/Statistic" component={Statistics} />
 
             <Route exact path="/tes" component={Tes} />
+            <Route component={NoMatch} />
           </Switch>
         </div>
       </Provider>

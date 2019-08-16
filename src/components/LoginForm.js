@@ -6,6 +6,7 @@ import { actions } from "../store";
 import { connect } from "unistore/react";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import Swal from "sweetalert2";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,7 @@ class LoginForm extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
   postLogin = () => {
+    Swal.fire("Good job!", "You Have Sign In!", "success");
     const { username, password } = this.state;
     const mydata = {
       username: username,
