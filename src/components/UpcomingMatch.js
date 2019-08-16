@@ -4,6 +4,8 @@ import { actions } from "../store";
 import Button from "./Button";
 import { withRouter } from "react-router-dom";
 
+import loading from "../assets/img/placeyourbet.jpg";
+
 class UpcomingMatch extends React.Component {
   constructor(props) {
     super(props);
@@ -40,11 +42,11 @@ class UpcomingMatch extends React.Component {
   render() {
     console.log(this.props.upcomingMatch);
     if (this.props.upcomingMatch.length == 0) {
-      return <div> </div>;
+      return <img width="100%" src={loading} />;
     } else {
       return (
         <div>
-          <div className="container">
+          <div className="container upcoming">
             <div className="row">
               <div className="col-12 border">
                 <h3>Upcoming Match</h3>
