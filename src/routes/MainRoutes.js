@@ -4,9 +4,8 @@ import ReactDOM from "react-dom";
 import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
 import Header from "../components/Header";
 import Body from "../pages/Body";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import Default from "../pages/Default";
-
 
 //import store
 import { Provider } from "unistore/react";
@@ -23,7 +22,6 @@ import BetCard from "../components/BetCard";
 import LoginForm from "../components/LoginForm";
 
 import Tes from "../components/Tes";
-
 
 import Profil from "../pages/Profile";
 function MainRoutes() {

@@ -4,6 +4,7 @@ import "../assets/styles/styles.css";
 // import Swal from "sweetalert2";
 import { actions } from "../store";
 import { connect } from "unistore/react";
+import { withRouter } from "react-router-dom";
 
 // const handleSearch = e => {
 //   Swal.fire("Good job!", "We will Show your wish!", "success");
@@ -28,6 +29,12 @@ class Header extends React.Component {
   handleSubmit = event => {
     this.props.setSearch(this.state.value);
     event.preventDefault();
+  };
+
+  handleSignOut = () => {
+    this.props.setLogin(false);
+    console.log("ini login", this.props.isLogin);
+    this.props.history.replace("/");
   };
 
   render() {
@@ -90,7 +97,7 @@ class Header extends React.Component {
                         <Link
                           to="/"
                           className="nav-link"
-                          onClick={() => this.props.handleSignOut()}
+                          onClick={this.handleSignOut}
                         >
                           Keluar <span className="sr-only">(current)</span>
                         </Link>
@@ -110,4 +117,4 @@ class Header extends React.Component {
 export default connect(
   "news, search",
   actions
-)(Header);
+)(withRouter(Header));

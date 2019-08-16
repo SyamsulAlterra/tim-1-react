@@ -54,8 +54,10 @@ hr.style7 {
   flex-direction: column;
   padding: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
 }
 .brand_logo_container {
@@ -142,7 +144,7 @@ a {
   border-radius: 100%;
   width: 500px;
   margin-top: 80px;
-
+}
 .profil {
   margin: 100px auto;
   text-align: center;
@@ -150,5 +152,4 @@ a {
 .profil img {
   width: 300px;
   height: 300px;
-
 }
