@@ -7,7 +7,6 @@ import Body from "../pages/Body";
 import Swal from "sweetalert2";
 import Default from "../pages/Default";
 
-
 //import store
 import { Provider } from "unistore/react";
 import { store } from "../store";
@@ -23,7 +22,7 @@ import BetCard from "../components/BetCard";
 import LoginForm from "../components/LoginForm";
 
 import Tes from "../components/Tes";
-
+import NoMatch from "../pages/Nomatch";
 
 import Profil from "../pages/Profile";
 function MainRoutes() {
@@ -45,6 +44,7 @@ function MainRoutes() {
             <Route exact path="/Statistic" component={Statistics} />
 
             <Route exact path="/tes" component={Tes} />
+            <Route component={NoMatch} />
           </Switch>
         </div>
       </Provider>
