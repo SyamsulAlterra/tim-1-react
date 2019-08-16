@@ -86,9 +86,13 @@ class Header extends React.Component {
                           Profile
                         </Link>
                       </li>
-                      <li class="nav-item">
-                        <Link to="/signout" class="nav-link">
-                          Sign Out
+                      <li className="nav-item">
+                        <Link
+                          to="/"
+                          className="nav-link"
+                          onClick={() => this.props.handleSignOut()}
+                        >
+                          Keluar <span className="sr-only">(current)</span>
                         </Link>
                       </li>
                     </ul>

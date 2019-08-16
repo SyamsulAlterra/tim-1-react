@@ -5,7 +5,7 @@ const initialState = {
   nama: "",
   email: "",
   avatar: "",
-  isLogin: null,
+  isLogin: false,
   listMovies: [],
   listMoviesByCategory: [],
 
@@ -37,6 +37,7 @@ const initialState = {
   matchDate: "",
   currentLeague: "epl",
   syamsulDate: "",
+
   homeTeam: "",
   tim_1: "",
   tim_2: ""
@@ -75,7 +76,19 @@ export let actions = store => ({
         "https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
       )
       .then(response => {
+        // let newsBaru = response.data.articles.map(value => {
+        //   if (
+        //     value.url.includes("football") ||
+        //     value.description.includes("football")
+        //   ) {
+        //     return value;
+        //   }
+        // });
+        // if (newsBaru.length === 0) {
         store.setState({ news: response.data.articles });
+        // } else {
+        //   store.setState({ news: newsBaru });
+        // }
         console.log(response);
       })
       .catch(error => {
@@ -123,6 +136,12 @@ export let actions = store => ({
 
   setEmail(state, namaEmail) {
     return { email: namaEmail };
+  },
+  setName(state, value) {
+    return { email: value };
+  },
+  setLogin(state, value) {
+    return { isLogin: value };
   },
   login(state) {
     console.log(state.isLogin);
@@ -177,6 +196,7 @@ export let actions = store => ({
     return { upcomingMatch: value };
   },
 
+
   setcommenceTimeNow(state, value) {
     // console.log("kuy");
     return { commenceTimeNow: value };
@@ -215,9 +235,11 @@ export let actions = store => ({
   },
   setHomeTeam(state, team) {
     return { homeTeam: team };
+
   },
   setformBet(state, value) {
     return { formBet: value };
+
   }
 });
 

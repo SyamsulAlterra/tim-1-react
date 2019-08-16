@@ -4,6 +4,9 @@ import ReactDOM from "react-dom";
 import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
 import Header from "../components/Header";
 import Body from "../pages/Body";
+import Swal from "sweetalert2";
+import Default from "../pages/Default";
+
 
 //import store
 import { Provider } from "unistore/react";
@@ -17,10 +20,12 @@ import MatchDetail from "../pages/MatchDetail";
 //temp
 import BetCard from "../components/BetCard";
 
+import LoginForm from "../components/LoginForm";
+
 import Tes from "../components/Tes";
 
-import Profil from "../pages/Profile";
 
+import Profil from "../pages/Profile";
 function MainRoutes() {
   return (
     <Router>
@@ -30,17 +35,16 @@ function MainRoutes() {
             <Route exact path="/betting" component={Betting} />
             {/* <Route exact path="/" component={BetCard} /> */}
 
-            <Route exact path="/" component={Body} />
+            <Route exact path="/" component={Default} />
+            <Route exact path="/signout" component={Default} />
+            <Route exact path="/login" component={LoginForm} />
+            <Route exact path="/body" component={Body} />
+            <Route exact path="/profile" component={Profil} />
+            <Route exact path="/matchdetail" component={MatchDetail} />
 
             <Route exact path="/Statistic" component={Statistics} />
 
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/matchdetail" component={MatchDetail} />
-
             <Route exact path="/tes" component={Tes} />
-
-            <Route exact path="/profile" component={Profil} />
-
           </Switch>
         </div>
       </Provider>
