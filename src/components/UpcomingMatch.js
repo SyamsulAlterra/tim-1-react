@@ -64,28 +64,9 @@ class UpcomingMatch extends React.Component {
                     homeTeam={value.home_team}
                     onClick={this.handleClick}/>
                   </div>
-
+)}}
 //           </div>
-//           {this.props.data.map((value, index) => {
-//             return (
-//               <div className="row border hvr-fade" id="upcom-match" key={index}>
-//                 <div className="col-3 text-right pt-2">{value.teams[0]}</div>
-//                 <div className="col-1 text-center pt-2">VS</div>
-//                 <div className="col-3 text-left pt-2">{value.teams[1]}</div>
-//                 <div className="col-3 text-left pt-2">
-//                   {this.changeTimeStamp(value.commence_time)}{" "}
-//                 </div>
-//                 <div className="col-2 text-left">
-//                   <Button
-                    
-//                   />
-//                   {/* <button className="btn btn-primary" value={this.props.dateLis[this.props.dateList.length-1]}>
-//                     See More
-//                   </button> */}
-
-                </div>
-              );
-            })}
+//          
           </div>
         </div>
       );

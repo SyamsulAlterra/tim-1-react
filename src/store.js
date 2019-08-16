@@ -25,7 +25,6 @@ const initialState = {
   currentLeague: "epl",
   syamsulDate: "",
   homeTeam: ""
-
 };
 
 export let store = createStore(initialState);
@@ -96,7 +95,6 @@ export let actions = store => ({
       });
   },
 
-
   setNewsIndex(state) {
     if (state.newsIndex === state.news.length - 1) {
       return { newsIndex: 0 };
@@ -107,7 +105,7 @@ export let actions = store => ({
   setNews(state, value) {
     console.log("kuy");
     return { upcomingMatch: value };
-
+  },
   setMatchDate(state, value) {
     return { matchDate: value };
   },
@@ -141,7 +139,6 @@ export let actions = store => ({
   },
   setHomeTeam(state, team) {
     return { homeTeam: team };
-
   }
 });
 
