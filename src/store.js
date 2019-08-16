@@ -9,6 +9,11 @@ const initialState = {
   listMovies: [],
   listMoviesByCategory: [],
 
+  newsEng: [],
+  newsFer: [],
+  newsIt: [],
+  search: "",
+
   hostBetting: "https://api.the-odds-api.com/v3/odds/?region=uk&mkt=h2h",
 
   apikeyBetting: "&apiKey=ef448035db83c1223cd34734ecac60f8&sport=",
@@ -38,7 +43,7 @@ export let actions = store => ({
   async getData(state) {
     await axios
       .get(
-        "https://newsapi.org/v2/top-headlines?country=id&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
+        "https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
       )
       .then(response => {
         store.setState({ news: response.data.articles });
@@ -49,9 +54,44 @@ export let actions = store => ({
       });
   },
 
+  getData1: state => {
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=fr&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
+      )
+      .then(response => {
+        store.setState({ newsFer: response.data.articles });
+        console.log(response);
+        console.log("ini news1", store.getState().newsFer);
+      })
+      .catch(error => {
+        console.log("Terdapat error di get data :", error);
+      });
+  },
+
+  getData2: state => {
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=it&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
+      )
+      .then(response => {
+        store.setState({ newsIt: response.data.articles });
+        console.log(response);
+        console.log("ini news2", store.getState().newsIt);
+      })
+      .catch(error => {
+        console.log("Terdapat error di get data :", error);
+      });
+  },
+
   setAvatar(state, namaInput) {
     return { avatar: namaInput };
   },
+
+  setSearch(state, value) {
+    return { search: value };
+  },
+
   setEmail(state, namaEmail) {
     return { email: namaEmail };
   },
@@ -146,3 +186,6 @@ export let actions = store => ({
 });
 
 // export { store, actions };
+// newsEng: [],
+// newsFer: [],
+// newsIt: [],
