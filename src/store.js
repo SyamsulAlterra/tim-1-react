@@ -34,12 +34,20 @@ const initialState = {
   matchDate: "",
   currentLeague: "epl",
   syamsulDate: "",
-  homeTeam: ""
+  homeTeam: "",
+  tim_1: "",
+  tim_2: ""
 };
 
 export let store = createStore(initialState);
 
 export let actions = store => ({
+  setTeam1(state, a) {
+    return { tim_1: a };
+  },
+  setTeam2(state, a) {
+    return { tim_2: a };
+  },
   setNama(state, namaInput) {
     return { nama: namaInput };
   },
@@ -156,8 +164,6 @@ export let actions = store => ({
     // console.log("kuy");
     return { commenceTimeNow: value };
   },
-
-
 
   setMatchDate(state, value) {
     return { matchDate: value };

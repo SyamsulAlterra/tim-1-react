@@ -70,7 +70,7 @@ class Statistics extends React.Component {
           "x-rapidapi-key": this.state.apikey
         }
       })
-      .then(response => {
+      .then(async response => {
         data = response.data.api.fixtures;
         filteredData = data.filter(team => {
           console.log(team);
@@ -82,6 +82,9 @@ class Statistics extends React.Component {
           );
         });
         console.log(filteredData);
+
+        await this.props.setTeam1(filteredData[0].homeTeam.logo);
+        await this.props.setTeam2(filteredData[0].awayTeam.logo);
 
         this.setState({
           logo1: filteredData[0].homeTeam.logo,
@@ -162,13 +165,13 @@ class Statistics extends React.Component {
     this.getRecord2();
   };
 
-  componentDidMount = () => {
+  componentWillMount = () => {
     this.getData();
   };
 
   render() {
     console.log(this.props.homeTeam);
-
+    console.log(this.props.syamsulDate);
     return (
       <div class="statistic border">
         <table class="table table-bordered">
