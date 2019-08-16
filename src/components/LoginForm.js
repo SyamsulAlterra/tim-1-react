@@ -31,8 +31,8 @@ class LoginForm extends React.Component {
         console.log(this.props.is_login);
         if (response.data.hasOwnProperty("status")) {
           this.props.setLogin(true);
-          this.props.setEmail(this.state.Email);
-          this.props.setName(this.state.password);
+          this.props.setEmail(response.data.email);
+          this.props.setName(this.state.Email);
           this.props.history.push("/body");
         }
       })
@@ -53,15 +53,15 @@ class LoginForm extends React.Component {
             <div className="col-md-4">
               <form onSubmit={e => e.preventDefault()}>
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
+                  <label for="exampleInputEmail1">Username</label>
                   <input
                     required
-                    type="email"
+                    type="text"
                     class="form-control"
                     name="Email"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    placeholder="Enter email"
+                    placeholder="Enter username"
                     onChange={e => this.changeInput(e)}
                   />
                   <small id="emailHelp" class="form-text text-muted">
