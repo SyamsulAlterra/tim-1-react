@@ -60,7 +60,7 @@ class NewsCarousel extends React.Component {
                         this.props.setNewsIndex();
                       }}
                     >
-                      Share <i className="icon-share" />
+                      Next <i class="icon-share-alt" />
                     </button>
                   </div>
                 </div>
