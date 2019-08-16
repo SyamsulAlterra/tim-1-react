@@ -3,6 +3,9 @@ import { connect } from "unistore/react";
 import { actions } from "../store";
 import "../assets/styles/styles.css";
 
+// import image
+import loading from "../assets/img/loading.gif";
+
 class NewsCarousel extends React.Component {
   // constructor(props) {
   //   super(props);
@@ -70,7 +73,7 @@ class NewsCarousel extends React.Component {
         </div>
       );
     } else {
-      return <div>halo</div>;
+      return <img width="100%" src={loading} />;
     }
   }
 }
