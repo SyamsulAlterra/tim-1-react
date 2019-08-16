@@ -1,4 +1,3 @@
-
 .hvr-underline-from-left {
   /* display: inline-block; */
   vertical-align: middle;
@@ -132,7 +131,7 @@
   background-color: #2098d1;
   background-color: #2098d1;
   color: white;
-
+}
 .shadow {
   -webkit-box-shadow: 1px 4px 5px 0px #abc3c4;
   -moz-box-shadow: 1px 4px 5px 0px #abc3c4;
