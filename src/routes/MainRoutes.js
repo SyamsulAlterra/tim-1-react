@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import { Route, Link, Switch, BrowserRouter as Router } from "react-router-dom";
 import Header from "../components/Header";
 import Body from "../pages/Body";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 //import store
 import { Provider } from "unistore/react";
@@ -13,13 +13,12 @@ import Statistics from "../components/Statistics";
 
 // import pages and component
 import Betting from "../pages/Betting.js";
-
+import Login from "../pages/Login";
+import MatchDetail from "../pages/MatchDetail";
 //temp
 import BetCard from "../components/BetCard";
 
-
 import Tes from "../components/Tes";
-
 
 function MainRoutes() {
   return (
@@ -33,16 +32,15 @@ function MainRoutes() {
             <Route exact path="/" component={Body} />
 
             <Route exact path="/Statistic" component={Statistics} />
-
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/matchdetail" component={MatchDetail} />
 
             <Route exact path="/tes" component={Tes} />
-
           </Switch>
         </div>
       </Provider>
     </Router>
   );
-
 }
 
 export default MainRoutes;
