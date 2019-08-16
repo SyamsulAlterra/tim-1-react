@@ -22,19 +22,18 @@ class UpcomingMatch extends React.Component {
     };
 
     let s = new Date(timestamp * 1000).toLocaleDateString("en-US", options);
-    // this.props.addDateList(s);
     return s;
   }
   //   onMouseEnter, onMouseLeave
 
-  handleClick = async value => {
+  handleClick = async (value, home) => {
     await this.props.setMatchDate(value);
-    console.log(this.props.matchDate);
-    this.props.history.push("/tes");
+    await this.props.setHomeTeam(home);
+    await this.props.passedDate();
+    this.props.history.push("/Statistic");
   };
 
   render() {
-    console.log(this.props.matchDate);
     return (
       <div>
         <div className="container">
@@ -55,6 +54,7 @@ class UpcomingMatch extends React.Component {
                 <div className="col-2 text-left">
                   <Button
                     value={this.changeTimeStamp(value.commence_time)}
+                    homeTeam={value.home_team}
                     onClick={this.handleClick}
                   />
                   {/* <button className="btn btn-primary" value={this.props.dateLis[this.props.dateList.length-1]}>
