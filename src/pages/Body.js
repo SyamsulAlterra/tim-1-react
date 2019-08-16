@@ -56,27 +56,6 @@ class Body extends React.Component {
                   <canvas id="myChart" width="400" height="400" />
                 </div>
               </div>
-// =======
-//     // console.log("ini news1", this.props.newsFer);
-//     // console.log("ini news2", this.props.newsIt);
-//     return (
-//       <div className="module" id="module">
-//         <Header />
-//         <div className="container-fluid">
-//           <div className="row mt-4">
-//             <div className="col-md-6">
-//               {/* <News /> */}
-//               <NewsCarousel />
-//             </div>
-//             <div
-//               className="col-md-6"
-//               style={{
-//                 height: "665px",
-//                 overflow: "scroll"
-//               }}
-//             >
-//               <Betting />
-// >>>>>>> development
             </div>
           </div>
         );
