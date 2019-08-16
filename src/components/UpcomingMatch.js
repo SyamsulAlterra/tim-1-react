@@ -26,10 +26,12 @@ class UpcomingMatch extends React.Component {
   }
 
   handleClick = async (value, home) => {
-    await this.props.setMatchDate(value);
+    let statDate = this.changeTimeStamp(value);
+    await this.props.setcommenceTimeNow(value);
+    await this.props.setMatchDate(statDate);
     await this.props.setHomeTeam(home);
     await this.props.passedDate();
-    this.props.history.push("/Statistic");
+    this.props.history.push("/matchdetail");
   };
 
   render() {
@@ -45,30 +47,34 @@ class UpcomingMatch extends React.Component {
                 <h3>Upcoming Match</h3>
               </div>
             </div>
+            <div>
+              {this.props.upcomingMatch.map((value, index) => {
+                return (
+                  <div
+                    className="row border hvr-fade"
+                    id="upcom-match"
+                    key={index}
+                  >
+                    <div className="col-3 text-right pt-2">
+                      {value.teams[0]}
+                    </div>
+                    <div className="col-1 text-center pt-2">VS</div>
+                    <div className="col-3 text-left pt-2">{value.teams[1]}</div>
+                    <div className="col-3 text-left pt-2">
+                      {this.changeTimeStamp(value.commence_time)}{" "}
+                    </div>
+                    <div className="col-2 text-left">
+                      <Button
+                        value={value.commence_time}
+                        homeTeam={value.home_team}
+                        onClick={this.handleClick}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
 
-            {this.props.upcomingMatch.map((value, index) => {
-              return (
-                <div
-                  className="row border hvr-fade"
-                  id="upcom-match"
-                  key={index}
-                >
-                  <div className="col-3 text-right pt-2">{value.teams[0]}</div>
-                  <div className="col-1 text-center pt-2">VS</div>
-                  <div className="col-3 text-left pt-2">{value.teams[1]}</div>
-                  <div className="col-3 text-left pt-2">
-                    {this.changeTimeStamp(value.commence_time)}{" "}
-                  </div>
-                  <div className="col-2 text-left">
-                    <Button
-                      value={this.changeTimeStamp(value.commence_time)}
-                      homeTeam={value.home_team}
-                      onClick={this.handleClick}
-                    />
-                  </div>
-                </div>
-              );
-            })}
           </div>
         </div>
       );

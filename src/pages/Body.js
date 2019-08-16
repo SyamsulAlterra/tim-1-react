@@ -39,7 +39,13 @@ class Body extends React.Component {
               {/* <News /> */}
               <NewsCarousel />
             </div>
-            <div className="col-md-6">
+            <div
+              className="col-md-6"
+              style={{
+                height: "665px",
+                overflow: "scroll"
+              }}
+            >
               <Betting />
             </div>
             <div>

@@ -27,6 +27,7 @@ const initialState = {
   soccer_spain_la_liga: [],
   upcomingIndex: [],
   upcomingMatch: [],
+  commenceTimeNow: "",
 
   news: [],
   newsIndex: 0,
@@ -147,9 +148,16 @@ export let actions = store => ({
     }
   },
   setNews(state, value) {
-    console.log("kuy");
+    // console.log("kuy");
     return { upcomingMatch: value };
   },
+
+  setcommenceTimeNow(state, value) {
+    // console.log("kuy");
+    return { commenceTimeNow: value };
+  },
+
+
 
   setMatchDate(state, value) {
     return { matchDate: value };
