@@ -9,41 +9,40 @@ import Swal from "sweetalert2";
 //import store
 import { Provider } from "unistore/react";
 import { store } from "../store";
+import Statistics from "../components/Statistics";
 
 // import pages and component
+import Betting from "../pages/Betting.js";
 
-class MainRoutes extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+//temp
+import BetCard from "../components/BetCard";
 
-  handleSearch = () => {
-    Swal.fire({
-      position: "top-end",
-      type: "success",
-      title: "Your work has been saved",
-      showConfirmButton: false,
-      timer: 1500
-    });
-  };
 
-  render() {
-    return (
-      <Router>
-        <Provider store={store}>
-          <div>
-            <Header
-              handleSearch={this.handleSearch}
-              // getSearch={this.props.setSearch()}
-            />
-            <Switch>
-              <Route exact path="/" component={Body} />
-            </Switch>
-          </div>
-        </Provider>
-      </Router>
-    );
-  }
+import Tes from "../components/Tes";
+
+
+function MainRoutes() {
+  return (
+    <Router>
+      <Provider store={store}>
+        <div>
+          <Switch>
+            <Route exact path="/betting" component={Betting} />
+            {/* <Route exact path="/" component={BetCard} /> */}
+
+            <Route exact path="/" component={Body} />
+
+            <Route exact path="/Statistic" component={Statistics} />
+
+
+            <Route exact path="/tes" component={Tes} />
+
+          </Switch>
+        </div>
+      </Provider>
+    </Router>
+  );
+
 }
 
 export default MainRoutes;

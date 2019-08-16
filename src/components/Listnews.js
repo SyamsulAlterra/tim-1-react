@@ -8,6 +8,7 @@ class News extends React.Component {
     super(props);
   }
   render() {
+// <<<<<<< search
     if (this.props.search === "") {
       return (
         <div>
@@ -135,6 +136,8 @@ class News extends React.Component {
         </div>
       );
     }
+// ======
+// >>>>>>> development
   }
 }
 
