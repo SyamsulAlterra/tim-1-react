@@ -9,6 +9,9 @@ const initialState = {
   listMovies: [],
   listMoviesByCategory: [],
   news: [],
+  newsEng: [],
+  newsFer: [],
+  newsIt: [],
   search: ""
 };
 
@@ -19,18 +22,10 @@ export let actions = store => ({
     return { nama: namaInput };
   },
 
-  setSearch: (state, event) => {
-    store.setState({ search: event.target.value });
-  },
-
-  setDefaultSearch: state => {
-    store.setState({ search: "" });
-  },
-
   getData: state => {
     axios
       .get(
-        "https://newsapi.org/v2/top-headlines?country=id&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
+        "https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
       )
       .then(response => {
         store.setState({ news: response.data.articles });
@@ -41,9 +36,99 @@ export let actions = store => ({
       });
   },
 
+  getData1: state => {
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=fr&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
+      )
+      .then(response => {
+        store.setState({ newsFer: response.data.articles });
+        console.log(response);
+        console.log("ini news1", store.getState().newsFer);
+      })
+      .catch(error => {
+        console.log("Terdapat error di get data :", error);
+      });
+  },
+
+  getData2: state => {
+    axios
+      .get(
+        "https://newsapi.org/v2/top-headlines?country=it&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
+      )
+      .then(response => {
+        store.setState({ newsIt: response.data.articles });
+        console.log(response);
+        console.log("ini news2", store.getState().newsIt);
+      })
+      .catch(error => {
+        console.log("Terdapat error di get data :", error);
+      });
+  },
+
+  // getData2: state => {
+  //   if (
+  //     store.getState().search.toLowerCase() === "premier league" ||
+  //     "inggris" ||
+  //     "premier" ||
+  //     "england"
+  //   ) {
+  //     axios
+  //       .get(
+  //         "https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
+  //       )
+  //       .then(response => {
+  //         store.setState({ news: response.data.articles });
+  //         console.log(response);
+  //       })
+  //       .catch(error => {
+  //         console.log("Terdapat error di get data :", error);
+  //       });
+  //   } else if (
+  //     store.getState().search.toLowerCase() === "ligue one" ||
+  //     "perancis" ||
+  //     "prancis" ||
+  //     "france"
+  //   ) {
+  //     axios
+  //       .get(
+  //         "https://newsapi.org/v2/top-headlines?country=fr&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
+  //       )
+  //       .then(response => {
+  //         store.setState({ news: response.data.articles });
+  //         console.log(response);
+  //       })
+  //       .catch(error => {
+  //         console.log("Terdapat error di get data :", error);
+  //       });
+  //   } else if (
+  //     store.getState().search.toLowerCase() === "serie a" ||
+  //     "series a" ||
+  //     "itali" ||
+  //     "italy"
+  //   ) {
+  //     axios
+  //       .get(
+  //         "https://newsapi.org/v2/top-headlines?country=it&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
+  //       )
+  //       .then(response => {
+  //         store.setState({ news: response.data.articles });
+  //         console.log(response);
+  //       })
+  //       .catch(error => {
+  //         console.log("Terdapat error di get data :", error);
+  //       });
+  //   }
+  // },
+
   setAvatar(state, namaInput) {
     return { avatar: namaInput };
   },
+
+  setSearch(state, value) {
+    return { search: value };
+  },
+
   setEmail(state, namaEmail) {
     return { email: namaEmail };
   },
@@ -64,3 +149,6 @@ export let actions = store => ({
 });
 
 // export { store, actions };
+// newsEng: [],
+// newsFer: [],
+// newsIt: [],

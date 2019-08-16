@@ -12,7 +12,24 @@ import { connect } from "unistore/react";
 class Header extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { value: "" };
   }
+
+  // getSearch = event => {
+  //   console.log("ini", event.target.value);
+  //   console.log("props", this.props.search);
+  //   this.props.setSearch(event.target.value);
+  // };
+
+  handleChange = event => {
+    this.setState({ value: event.target.value });
+  };
+
+  handleSubmit = event => {
+    this.props.setSearch(this.state.value);
+    event.preventDefault();
+  };
+
   render() {
     return (
       <div>
@@ -35,23 +52,19 @@ class Header extends React.Component {
               </div>
               <div className="col-md-3">
                 <nav class="navbar navbar-light bg-light">
-                  <form
-                    class="form-inline"
-                    onSubmit={e => {
-                      this.props.setSearch(e);
-                    }}
-                  >
+                  <form class="form-inline" onSubmit={this.handleSubmit}>
                     <input
                       class="form-control mr-sm-2"
                       type="search"
                       placeholder="Find your wish"
                       aria-label="Search"
-                      // onChange={props.handleChange}
+                      value={this.state.value}
+                      onChange={this.handleChange}
                     />
                     <button
                       class="btn btn-outline-info my-2 my-sm-0"
                       type="submit"
-                      // onClick={this.props.handleSearch}
+                      // onChange={this.getSearch}
                     >
                       <i class="icon-search" />
                     </button>

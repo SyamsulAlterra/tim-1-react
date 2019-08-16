@@ -9,20 +9,35 @@ import "../assets/styles/styles.css";
 // import { get } from "http";
 
 class Body extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   handleDefault = () => {
     if (this.props.match.params.endpoint === "home") {
-      this.props.setDefaultSearch();
+      this.props.setDefaultSearch("");
     }
   };
 
-  componentWillMount = () => {
-    this.props.getData();
+  componentWillMount = async () => {
+    await this.props.getData();
+    await this.props.getData1();
+    this.props.getData2();
   };
 
+  componentDidMount = () => {
+    this.props.getData1();
+    this.props.getData2();
+  };
+
+  // componentDidUpdate = () => {
+  //   this.props.getData2();
+  // };
+
   render() {
+    console.log("ini search", this.props.search);
+    console.log("ini news", this.props.news);
+    console.log("ini news1", this.props.newsFer);
+    console.log("ini news2", this.props.newsIt);
     return (
       <div className="module" id="module">
         <div className="container-fluid">
@@ -41,6 +56,6 @@ class Body extends React.Component {
 }
 
 export default connect(
-  "news",
+  "news, search",
   actions
 )(Body);
