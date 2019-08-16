@@ -20,7 +20,7 @@ const initialState = {
     soccer_epl: []
   },
 
-  apikeyBetting: "&apiKey=ef448035db83c1223cd34734ecac60f8&sport=",
+  apikeyBetting: "&apiKey=2c009f10b9bfec71f321bd2155964969&sport=",
 
   soccer_epl: [],
   soccer_italy_serie_a: [],
