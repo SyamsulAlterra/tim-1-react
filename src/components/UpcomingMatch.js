@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "unistore/react";
 import { actions } from "../store";
+import Button from "./Button";
+import { withRouter } from "react-router-dom";
 
 class UpcomingMatch extends React.Component {
   constructor(props) {
@@ -23,6 +25,13 @@ class UpcomingMatch extends React.Component {
     return s;
   }
 
+  handleClick = async (value, home) => {
+    await this.props.setMatchDate(value);
+    await this.props.setHomeTeam(home);
+    await this.props.passedDate();
+    this.props.history.push("/Statistic");
+  };
+
   render() {
     console.log(this.props.upcomingMatch);
     if (this.props.upcomingMatch.length == 0) {
@@ -36,6 +45,7 @@ class UpcomingMatch extends React.Component {
                 <h3>Upcoming Match</h3>
               </div>
             </div>
+
             {this.props.upcomingMatch.map((value, index) => {
               return (
                 <div
@@ -50,8 +60,29 @@ class UpcomingMatch extends React.Component {
                     {this.changeTimeStamp(value.commence_time)}{" "}
                   </div>
                   <div className="col-2 text-left">
-                    <button className="btn btn-primary">See More</button>
+                    <Button value={this.changeTimeStamp(value.commence_time)}
+                    homeTeam={value.home_team}
+                    onClick={this.handleClick}/>
                   </div>
+
+//           </div>
+//           {this.props.data.map((value, index) => {
+//             return (
+//               <div className="row border hvr-fade" id="upcom-match" key={index}>
+//                 <div className="col-3 text-right pt-2">{value.teams[0]}</div>
+//                 <div className="col-1 text-center pt-2">VS</div>
+//                 <div className="col-3 text-left pt-2">{value.teams[1]}</div>
+//                 <div className="col-3 text-left pt-2">
+//                   {this.changeTimeStamp(value.commence_time)}{" "}
+//                 </div>
+//                 <div className="col-2 text-left">
+//                   <Button
+                    
+//                   />
+//                   {/* <button className="btn btn-primary" value={this.props.dateLis[this.props.dateList.length-1]}>
+//                     See More
+//                   </button> */}
+
                 </div>
               );
             })}
@@ -63,6 +94,12 @@ class UpcomingMatch extends React.Component {
 }
 
 export default connect(
+
   "upcomingMatch",
   actions
 )(UpcomingMatch);
+
+  "matchDate,upcomingMatch",
+  actions
+)(withRouter(UpcomingMatch));
+

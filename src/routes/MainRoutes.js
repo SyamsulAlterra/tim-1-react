@@ -16,6 +16,10 @@ import Betting from "../pages/Betting.js";
 //temp
 import BetCard from "../components/BetCard";
 
+
+import Tes from "../components/Tes";
+
+
 function MainRoutes() {
   return (
     <Router>
@@ -28,6 +32,10 @@ function MainRoutes() {
             <Route exact path="/" component={Body} />
 
             <Route exact path="/Statistic" component={Statistics} />
+
+
+            <Route exact path="/tes" component={Tes} />
+
           </Switch>
         </div>
       </Provider>

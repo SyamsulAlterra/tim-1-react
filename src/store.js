@@ -10,6 +10,7 @@ const initialState = {
   listMoviesByCategory: [],
 
   hostBetting: "https://api.the-odds-api.com/v3/odds/?region=uk&mkt=h2h",
+
   apikeyBetting: "&apiKey=ef448035db83c1223cd34734ecac60f8&sport=",
 
   soccer_epl: [],
@@ -19,7 +20,12 @@ const initialState = {
   upcomingMatch: [],
 
   news: [],
-  newsIndex: 0
+  newsIndex: 0,
+  matchDate: "",
+  currentLeague: "epl",
+  syamsulDate: "",
+  homeTeam: ""
+
 };
 
 export let store = createStore(initialState);
@@ -90,6 +96,7 @@ export let actions = store => ({
       });
   },
 
+
   setNewsIndex(state) {
     if (state.newsIndex === state.news.length - 1) {
       return { newsIndex: 0 };
@@ -100,6 +107,41 @@ export let actions = store => ({
   setNews(state, value) {
     console.log("kuy");
     return { upcomingMatch: value };
+
+  setMatchDate(state, value) {
+    return { matchDate: value };
+  },
+  setLeague(state, league) {
+    return { currentLeague: league };
+  },
+  passedDate(state) {
+    let mon = {
+      January: 1,
+      February: 2,
+      March: 3,
+      April: 4,
+      May: 5,
+      June: 6,
+      July: 7,
+      August: 8,
+      September: 9,
+      October: 10,
+      November: 11,
+      December: 12
+    };
+
+    let secData = state.matchDate.split(" ");
+    let day = secData[2].slice(0, secData[2].length - 1);
+    let month = mon[secData[1].slice(0, secData[1].length)];
+    let year = secData[3].slice(0, secData[3].length - 1);
+
+    return {
+      syamsulDate: year + "-" + month + "-" + day
+    };
+  },
+  setHomeTeam(state, team) {
+    return { homeTeam: team };
+
   }
 });
 
