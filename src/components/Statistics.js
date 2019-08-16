@@ -75,8 +75,10 @@ class Statistics extends React.Component {
         filteredData = data.filter(team => {
           console.log(team);
           return (
-            team.homeTeam.team_name == this.props.homeTeam.split(" ")[0] ||
-            team.awayTeam.team_name == this.props.homeTeam.split(" ")[0]
+            team.homeTeam.team_name.split(" ")[0] ==
+              this.props.homeTeam.split(" ")[0] ||
+            team.awayTeam.team_name.split(" ")[0] ==
+              this.props.homeTeam.split(" ")[0]
           );
         });
         console.log(filteredData);
@@ -184,7 +186,7 @@ class Statistics extends React.Component {
                 </p>
               </td>
               <td>
-                <h1>Head 2 Head</h1>
+                <h1>Recent Matches</h1>
                 {this.state.h2h.map(match => {
                   return <H2h match={match} />;
                 })}

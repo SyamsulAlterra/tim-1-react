@@ -10,7 +10,7 @@ import { actions } from "../store";
 import UpcomingMatch from "../components/UpcomingMatch";
 
 const hostBetting = "https://api.the-odds-api.com/v3/odds/?region=uk&mkt=h2h";
-const key = "&apiKey=72bc0d66cf1557bc13b37a07304a0a6f&sport=";
+const key = "&apiKey=2c009f10b9bfec71f321bd21559=";
 const league = "soccer_epl";
 
 class Betting extends React.Component {

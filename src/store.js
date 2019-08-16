@@ -10,7 +10,7 @@ const initialState = {
   listMoviesByCategory: [],
 
   hostBetting: "https://api.the-odds-api.com/v3/odds/?region=uk&mkt=h2h",
-  apikeyBetting: "&apiKey=72bc0d66cf1557bc13b37a07304a0a6f&sport=",
+  apikeyBetting: "&apiKey=2c009f10b9bfec71f321bd2155964969&sport=",
   listMatch: {
     soccer_epl: []
   },
