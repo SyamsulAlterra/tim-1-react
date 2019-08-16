@@ -8,17 +8,11 @@ class News extends React.Component {
     super(props);
   }
   render() {
-    //   if (
-    //     store.getState().search.toLowerCase() === "premier league" ||
-    //     "inggris" ||
-    //     "premier" ||
-    //     "england"
-    //   )
     if (this.props.search === "") {
       return (
         <div>
           {this.props.news.map((value, index) => {
-            if (index < 4 && value.url.includes("football")) {
+            if (index < 4 || value.url.includes("football")) {
               return (
                 <div className="card mb-3 newsShadow" key={index}>
                   <img

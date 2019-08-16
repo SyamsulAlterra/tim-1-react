@@ -18,26 +18,15 @@ class Body extends React.Component {
     }
   };
 
-  componentWillMount = async () => {
-    await this.props.getData();
-    await this.props.getData1();
-    this.props.getData2();
+  componentWillMount = () => {
+    this.props.getData();
   };
-
-  componentDidMount = () => {
-    this.props.getData1();
-    this.props.getData2();
-  };
-
-  // componentDidUpdate = () => {
-  //   this.props.getData2();
-  // };
 
   render() {
     console.log("ini search", this.props.search);
     console.log("ini news", this.props.news);
-    console.log("ini news1", this.props.newsFer);
-    console.log("ini news2", this.props.newsIt);
+    // console.log("ini news1", this.props.newsFer);
+    // console.log("ini news2", this.props.newsIt);
     return (
       <div className="module" id="module">
         <div className="container-fluid">

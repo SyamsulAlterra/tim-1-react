@@ -66,61 +66,6 @@ export let actions = store => ({
       });
   },
 
-  // getData2: state => {
-  //   if (
-  //     store.getState().search.toLowerCase() === "premier league" ||
-  //     "inggris" ||
-  //     "premier" ||
-  //     "england"
-  //   ) {
-  //     axios
-  //       .get(
-  //         "https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
-  //       )
-  //       .then(response => {
-  //         store.setState({ news: response.data.articles });
-  //         console.log(response);
-  //       })
-  //       .catch(error => {
-  //         console.log("Terdapat error di get data :", error);
-  //       });
-  //   } else if (
-  //     store.getState().search.toLowerCase() === "ligue one" ||
-  //     "perancis" ||
-  //     "prancis" ||
-  //     "france"
-  //   ) {
-  //     axios
-  //       .get(
-  //         "https://newsapi.org/v2/top-headlines?country=fr&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
-  //       )
-  //       .then(response => {
-  //         store.setState({ news: response.data.articles });
-  //         console.log(response);
-  //       })
-  //       .catch(error => {
-  //         console.log("Terdapat error di get data :", error);
-  //       });
-  //   } else if (
-  //     store.getState().search.toLowerCase() === "serie a" ||
-  //     "series a" ||
-  //     "itali" ||
-  //     "italy"
-  //   ) {
-  //     axios
-  //       .get(
-  //         "https://newsapi.org/v2/top-headlines?country=it&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
-  //       )
-  //       .then(response => {
-  //         store.setState({ news: response.data.articles });
-  //         console.log(response);
-  //       })
-  //       .catch(error => {
-  //         console.log("Terdapat error di get data :", error);
-  //       });
-  //   }
-  // },
-
   setAvatar(state, namaInput) {
     return { avatar: namaInput };
   },
