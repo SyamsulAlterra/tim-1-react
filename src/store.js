@@ -16,6 +16,10 @@ const initialState = {
 
   hostBetting: "https://api.the-odds-api.com/v3/odds/?region=uk&mkt=h2h",
 
+  listMatch: {
+    soccer_epl: []
+  },
+
   apikeyBetting: "&apiKey=2c009f10b9bfec71f321bd2155964969&sport=",
 
   soccer_epl: [],
@@ -23,20 +27,47 @@ const initialState = {
   soccer_spain_la_liga: [],
   upcomingIndex: [],
   upcomingMatch: [],
+  commenceTimeNow: "",
+  formBet: "",
+  betOption: 0,
+  betLabel: "win",
 
   news: [],
   newsIndex: 0,
   matchDate: "",
   currentLeague: "epl",
   syamsulDate: "",
-  homeTeam: ""
+
+  homeTeam: "",
+  tim_1: "",
+  tim_2: ""
 };
 
 export let store = createStore(initialState);
 
 export let actions = store => ({
+  setTeam1(state, a) {
+    return { tim_1: a };
+  },
+  setTeam2(state, a) {
+    return { tim_2: a };
+  },
   setNama(state, namaInput) {
     return { nama: namaInput };
+  },
+  setbetOption(state, betOptionInput) {
+    return { betOption: betOptionInput };
+  },
+  setbetLabel(state, betOptionInput) {
+    let tempLabel;
+    if (betOptionInput === 0) {
+      tempLabel = "win";
+    } else if (betOptionInput === 1) {
+      tempLabel = "draw";
+    } else {
+      tempLabel = "lose";
+    }
+    return { betLabel: tempLabel };
   },
 
   async getData(state) {
@@ -161,8 +192,14 @@ export let actions = store => ({
     }
   },
   setNews(state, value) {
-    console.log("kuy");
+    // console.log("kuy");
     return { upcomingMatch: value };
+  },
+
+
+  setcommenceTimeNow(state, value) {
+    // console.log("kuy");
+    return { commenceTimeNow: value };
   },
 
   setMatchDate(state, value) {
@@ -198,6 +235,11 @@ export let actions = store => ({
   },
   setHomeTeam(state, team) {
     return { homeTeam: team };
+
+  },
+  setformBet(state, value) {
+    return { formBet: value };
+
   }
 });
 

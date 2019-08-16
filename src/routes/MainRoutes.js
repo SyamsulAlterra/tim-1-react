@@ -7,6 +7,7 @@ import Body from "../pages/Body";
 import Swal from "sweetalert2";
 import Default from "../pages/Default";
 
+
 //import store
 import { Provider } from "unistore/react";
 import { store } from "../store";
@@ -14,13 +15,17 @@ import Statistics from "../components/Statistics";
 
 // import pages and component
 import Betting from "../pages/Betting.js";
-
+import Login from "../pages/Login";
+import MatchDetail from "../pages/MatchDetail";
 //temp
 import BetCard from "../components/BetCard";
+
 import LoginForm from "../components/LoginForm";
 
 import Tes from "../components/Tes";
 
+
+import Profil from "../pages/Profile";
 function MainRoutes() {
   return (
     <Router>
@@ -34,6 +39,8 @@ function MainRoutes() {
             <Route exact path="/signout" component={Default} />
             <Route exact path="/login" component={LoginForm} />
             <Route exact path="/body" component={Body} />
+            <Route exact path="/profile" component={Profil} />
+            <Route exact path="/matchdetail" component={MatchDetail} />
 
             <Route exact path="/Statistic" component={Statistics} />
 
