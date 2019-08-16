@@ -84,8 +84,8 @@ class Statistics extends React.Component {
         });
         console.log(filteredData);
 
-        await this.props.setTeam1(filteredData[0].homeTeam.logo);
-        await this.props.setTeam2(filteredData[0].awayTeam.logo);
+        await this.props.setTeam2(filteredData[0].homeTeam.logo);
+        await this.props.setTeam1(filteredData[0].awayTeam.logo);
         await this.setState({
           eventDate: filteredData[0].event_date.slice(0, 10)
         });
