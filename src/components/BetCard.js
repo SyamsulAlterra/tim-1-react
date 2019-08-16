@@ -1,4 +1,6 @@
 import React from "react";
+import { actions } from "../store";
+import { connect } from "unistore/react";
 
 import juve from "../assets/img/juve.png";
 import arsenal from "../assets/img/arsenal.jpg";
@@ -29,12 +31,20 @@ function BetCard(props) {
             </div>
           </div>
           <br />
-          <div className="row">
+          <div className="row  border-bottom">
             <div className="col-4 text-center">
               <img width="100%" src={arsenal} />
             </div>
             <div className="col-5">
               <h3>{props.data.odds.h2h[2]}</h3>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4 text-center">
+              <h2>return</h2>
+            </div>
+            <div className="col-5">
+              <h3>{props.formBet * props.data.odds.h2h[props.betOption]}</h3>
             </div>
           </div>
         </div>
@@ -43,4 +53,7 @@ function BetCard(props) {
   );
 }
 
-export default BetCard;
+export default connect(
+  "formBet, betOption",
+  actions
+)(BetCard);

@@ -20,7 +20,7 @@ const initialState = {
     soccer_epl: []
   },
 
-  apikeyBetting: "&apiKey=ef448035db83c1223cd34734ecac60f8&sport=",
+  apikeyBetting: "&apiKey=2c009f10b9bfec71f321bd2155964969&sport=",
 
   soccer_epl: [],
   soccer_italy_serie_a: [],
@@ -28,6 +28,9 @@ const initialState = {
   upcomingIndex: [],
   upcomingMatch: [],
   commenceTimeNow: "",
+  formBet: "",
+  betOption: 0,
+  betLabel: "win",
 
   news: [],
   newsIndex: 0,
@@ -42,6 +45,20 @@ export let store = createStore(initialState);
 export let actions = store => ({
   setNama(state, namaInput) {
     return { nama: namaInput };
+  },
+  setbetOption(state, betOptionInput) {
+    return { betOption: betOptionInput };
+  },
+  setbetLabel(state, betOptionInput) {
+    let tempLabel;
+    if (betOptionInput === 0) {
+      tempLabel = "win";
+    } else if (betOptionInput === 1) {
+      tempLabel = "draw";
+    } else {
+      tempLabel = "lose";
+    }
+    return { betLabel: tempLabel };
   },
 
   async getData(state) {
@@ -157,8 +174,6 @@ export let actions = store => ({
     return { commenceTimeNow: value };
   },
 
-
-
   setMatchDate(state, value) {
     return { matchDate: value };
   },
@@ -192,6 +207,9 @@ export let actions = store => ({
   },
   setHomeTeam(state, team) {
     return { homeTeam: team };
+  },
+  setformBet(state, value) {
+    return { formBet: value };
   }
 });
 

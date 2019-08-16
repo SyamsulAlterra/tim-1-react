@@ -8,6 +8,7 @@ import { actions } from "../store";
 import Statistics from "../components/Statistics";
 import Header from "../components/Header";
 import BetCard from "../components/BetCard";
+import BettingForm from "../components/BettingForm";
 
 class MatchDetail extends React.Component {
   constructor(props) {
@@ -22,8 +23,14 @@ class MatchDetail extends React.Component {
     return (
       <div>
         <Header />
+        <div className="row" />
         <Statistics />
         <div className="container">
+          <div className="row justify-content-center">
+            <div className="col-12">
+              <BettingForm />
+            </div>
+          </div>
           <div className="row">
             {filtered_bet[0].sites.map(value => {
               return <BetCard data={value} />;
