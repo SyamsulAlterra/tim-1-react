@@ -25,30 +25,58 @@ class Body extends React.Component {
     this.props.getData();
   };
 
+  handleSignOut = () => {
+    // this.props.setLogin(false);
+    // console.log("ini login", this.props.is_login);
+    this.props.history.replace("/");
+  };
+
   render() {
     console.log("ini search", this.props.search);
     console.log("ini news", this.props.news);
     // console.log("ini news1", this.props.newsFer);
     // console.log("ini news2", this.props.newsIt);
-    return (
-      <div className="module" id="module">
-        <Header />
-        <div className="container-fluid">
-          <div className="row mt-4">
-            <div className="col-md-6">
-              {/* <News /> */}
-              <NewsCarousel />
-            </div>
-            <div className="col-md-6">
-              <Betting />
-            </div>
-            <div>
-              <canvas id="myChart" width="400" height="400" />
+    if (this.props.search !== "") {
+      return (
+        <div className="module" id="module">
+          <Header />
+          <div className="container-fluid">
+            <div className="row mt-4">
+              <div className="col-md-6">
+                <News />
+                {/* <NewsCarousel /> */}
+              </div>
+              <div className="col-md-6">
+                <Betting />
+              </div>
+              <div>
+                <canvas id="myChart" width="400" height="400" />
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="module" id="module">
+          <Header handleSignout={this.handleSignOut} />
+          <div className="container-fluid">
+            <div className="row mt-4">
+              <div className="col-md-6">
+                {/* <News /> */}
+                <NewsCarousel />
+              </div>
+              <div className="col-md-6">
+                <Betting />
+              </div>
+              <div>
+                <canvas id="myChart" width="400" height="400" />
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
   }
 }
 

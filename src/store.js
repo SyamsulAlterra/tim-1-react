@@ -16,7 +16,7 @@ const initialState = {
 
   hostBetting: "https://api.the-odds-api.com/v3/odds/?region=uk&mkt=h2h",
 
-  apikeyBetting: "&apiKey=ef448035db83c1223cd34734ecac60f8&sport=",
+  apikeyBetting: "&apiKey=2c009f10b9bfec71f321bd2155964969&sport=",
 
   soccer_epl: [],
   soccer_italy_serie_a: [],
@@ -30,7 +30,6 @@ const initialState = {
   currentLeague: "epl",
   syamsulDate: "",
   homeTeam: ""
-
 };
 
 export let store = createStore(initialState);
@@ -46,7 +45,19 @@ export let actions = store => ({
         "https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=1590e425439643439774a03fafdc7f06"
       )
       .then(response => {
+        // let newsBaru = response.data.articles.map(value => {
+        //   if (
+        //     value.url.includes("football") ||
+        //     value.description.includes("football")
+        //   ) {
+        //     return value;
+        //   }
+        // });
+        // if (newsBaru.length === 0) {
         store.setState({ news: response.data.articles });
+        // } else {
+        //   store.setState({ news: newsBaru });
+        // }
         console.log(response);
       })
       .catch(error => {
@@ -136,7 +147,6 @@ export let actions = store => ({
       });
   },
 
-
   setNewsIndex(state) {
     if (state.newsIndex === state.news.length - 1) {
       return { newsIndex: 0 };
@@ -147,6 +157,7 @@ export let actions = store => ({
   setNews(state, value) {
     console.log("kuy");
     return { upcomingMatch: value };
+  },
 
   setMatchDate(state, value) {
     return { matchDate: value };
@@ -181,7 +192,6 @@ export let actions = store => ({
   },
   setHomeTeam(state, team) {
     return { homeTeam: team };
-
   }
 });
 
