@@ -7,6 +7,7 @@ import { connect } from "unistore/react";
 import News from "../components/Listnews";
 import NewsCarousel from "../components/NewsCarousel";
 import Betting from "./Betting";
+import { Redirect } from "react-router-dom";
 
 import "../assets/styles/styles.css";
 // import { get } from "http";
@@ -26,56 +27,58 @@ class Body extends React.Component {
   };
 
   handleSignOut = () => {
-    // this.props.setLogin(false);
-    // console.log("ini login", this.props.is_login);
+    this.props.setLogin(false);
+    console.log("ini login", this.props.isLogin);
     this.props.history.replace("/");
   };
 
   render() {
     console.log("ini search", this.props.search);
     console.log("ini news", this.props.news);
-    // console.log("ini news1", this.props.newsFer);
-    // console.log("ini news2", this.props.newsIt);
-    if (this.props.search !== "") {
-      return (
-        <div className="module" id="module">
-          <Header />
-          <div className="container-fluid">
-            <div className="row mt-4">
-              <div className="col-md-6">
-                <News />
-                {/* <NewsCarousel /> */}
-              </div>
-              <div className="col-md-6">
-                <Betting />
-              </div>
-              <div>
-                <canvas id="myChart" width="400" height="400" />
-              </div>
-            </div>
-          </div>
-        </div>
-      );
+    if (this.props.isLogin === false) {
+      return <Redirect to={{ pathname: "/masuk" }} />;
     } else {
-      return (
-        <div className="module" id="module">
-          <Header handleSignout={this.handleSignOut} />
-          <div className="container-fluid">
-            <div className="row mt-4">
-              <div className="col-md-6">
-                {/* <News /> */}
-                <NewsCarousel />
-              </div>
-              <div className="col-md-6">
-                <Betting />
-              </div>
-              <div>
-                <canvas id="myChart" width="400" height="400" />
+      if (this.props.search !== "") {
+        return (
+          <div className="module" id="module">
+            <Header handleSignOut={this.handleSignOut} />
+            <div className="container-fluid">
+              <div className="row mt-4">
+                <div className="col-md-6">
+                  <News />
+                  {/* <NewsCarousel /> */}
+                </div>
+                <div className="col-md-6">
+                  <Betting />
+                </div>
+                <div>
+                  <canvas id="myChart" width="400" height="400" />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      );
+        );
+      } else {
+        return (
+          <div className="module" id="module">
+            <Header handleSignout={this.handleSignOut} />
+            <div className="container-fluid">
+              <div className="row mt-4">
+                <div className="col-md-6">
+                  {/* <News /> */}
+                  <NewsCarousel />
+                </div>
+                <div className="col-md-6">
+                  <Betting />
+                </div>
+                <div>
+                  <canvas id="myChart" width="400" height="400" />
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      }
     }
   }
 }

@@ -5,7 +5,7 @@ const initialState = {
   nama: "",
   email: "",
   avatar: "",
-  isLogin: null,
+  isLogin: false,
   listMovies: [],
   listMoviesByCategory: [],
 
@@ -105,6 +105,12 @@ export let actions = store => ({
 
   setEmail(state, namaEmail) {
     return { email: namaEmail };
+  },
+  setName(state, value) {
+    return { email: value };
+  },
+  setLogin(state, value) {
+    return { isLogin: value };
   },
   login(state) {
     console.log(state.isLogin);
