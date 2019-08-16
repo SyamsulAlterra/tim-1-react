@@ -16,6 +16,10 @@ const initialState = {
 
   hostBetting: "https://api.the-odds-api.com/v3/odds/?region=uk&mkt=h2h",
 
+  listMatch: {
+    soccer_epl: []
+  },
+
   apikeyBetting: "&apiKey=ef448035db83c1223cd34734ecac60f8&sport=",
 
   soccer_epl: [],
@@ -147,10 +151,14 @@ export let actions = store => ({
     // console.log("kuy");
     return { upcomingMatch: value };
   },
+
   setcommenceTimeNow(state, value) {
     // console.log("kuy");
     return { commenceTimeNow: value };
   },
+
+
+
   setMatchDate(state, value) {
     return { matchDate: value };
   },

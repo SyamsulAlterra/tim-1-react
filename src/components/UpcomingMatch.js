@@ -74,6 +74,7 @@ class UpcomingMatch extends React.Component {
                 );
               })}
             </div>
+
           </div>
         </div>
       );

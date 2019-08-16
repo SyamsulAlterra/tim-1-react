@@ -29,12 +29,15 @@ class Betting extends React.Component {
 
   handleOnClickEPL = event => {
     this.props.setNews(this.props.soccer_epl);
+    this.props.setLeague("epl");
   };
   handleOnSerieA = event => {
     this.props.setNews(this.props.soccer_italy_serie_a);
+    this.props.setLeague("serieA");
   };
   handleOnLaliga = event => {
     this.props.setNews(this.props.soccer_spain_la_liga);
+    this.props.setLeague("laLiga");
   };
 
   componentWillMount = async () => {
