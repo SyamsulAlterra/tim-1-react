@@ -138,7 +138,7 @@ export let actions = store => ({
     return { email: namaEmail };
   },
   setName(state, value) {
-    return { email: value };
+    return { nama: value };
   },
   setLogin(state, value) {
     return { isLogin: value };
@@ -196,7 +196,6 @@ export let actions = store => ({
     return { upcomingMatch: value };
   },
 
-
   setcommenceTimeNow(state, value) {
     // console.log("kuy");
     return { commenceTimeNow: value };
@@ -235,11 +234,9 @@ export let actions = store => ({
   },
   setHomeTeam(state, team) {
     return { homeTeam: team };
-
   },
   setformBet(state, value) {
     return { formBet: value };
-
   }
 });
 

@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "unistore/react";
+import { actions } from "../store";
 
 class Profil extends React.Component {
   render() {
@@ -8,11 +10,11 @@ class Profil extends React.Component {
           <div class="row">
             <div class="col-12">
               <img
-                src="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
+                src="https://www.provoke-online.com/images/art_news/a35e4adffa4eb4891062bb42.jpg"
                 alt=""
               />
-              <h1>Nama</h1>
-              <h1>Username</h1>
+              <h1>{this.props.nama}</h1>
+              <h1>{this.props.email}</h1>
             </div>
           </div>
         </div>
@@ -21,4 +23,7 @@ class Profil extends React.Component {
   }
 }
 
-export default Profil;
+export default connect(
+  "nama, email",
+  actions
+)(Profil);
