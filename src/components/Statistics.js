@@ -41,7 +41,8 @@ class Statistics extends React.Component {
         }
       },
       apikey: "5e0c95653cmsh4cd85871915e19ep1294ccjsndd303cb4ef96",
-      target: {}
+      target: {},
+      eventDate: ""
     };
   }
 
@@ -70,7 +71,7 @@ class Statistics extends React.Component {
           "x-rapidapi-key": this.state.apikey
         }
       })
-      .then(response => {
+      .then(async response => {
         data = response.data.api.fixtures;
         filteredData = data.filter(team => {
           console.log(team);
@@ -82,6 +83,12 @@ class Statistics extends React.Component {
           );
         });
         console.log(filteredData);
+
+        await this.props.setTeam1(filteredData[0].homeTeam.logo);
+        await this.props.setTeam2(filteredData[0].awayTeam.logo);
+        await this.setState({
+          eventDate: filteredData[0].event_date.slice(0, 10)
+        });
 
         this.setState({
           logo1: filteredData[0].homeTeam.logo,
@@ -162,13 +169,13 @@ class Statistics extends React.Component {
     this.getRecord2();
   };
 
-  componentDidMount = () => {
+  componentWillMount = () => {
     this.getData();
   };
 
   render() {
     console.log(this.props.homeTeam);
-
+    console.log(this.props.syamsulDate);
     return (
       <div class="statistic border">
         <table class="table table-bordered">
@@ -186,7 +193,8 @@ class Statistics extends React.Component {
                 </p>
               </td>
               <td>
-                <h1>Recent Matches</h1>
+                <h1>{this.state.eventDate}</h1>
+                <h4>Recent Matches</h4>
                 {this.state.h2h.map(match => {
                   return <H2h match={match} />;
                 })}

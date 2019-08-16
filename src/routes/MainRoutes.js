@@ -40,7 +40,7 @@ function MainRoutes() {
             <Route exact path="/tes" component={Tes} />
 
             <Route exact path="/profile" component={Profil} />
-            <Route exact path="/login" component={Login} />
+
           </Switch>
         </div>
       </Provider>

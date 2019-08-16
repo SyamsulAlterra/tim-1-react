@@ -21,7 +21,10 @@ class UpcomingMatch extends React.Component {
       timeZone: "Asia/Jakarta"
     };
 
-    let s = new Date(timestamp * 1000).toLocaleDateString("en-US", options);
+    let s = new Date(timestamp * 1000 - 7 * 3600).toLocaleDateString(
+      "en-US",
+      options
+    );
     return s;
   }
 
@@ -74,7 +77,6 @@ class UpcomingMatch extends React.Component {
                 );
               })}
             </div>
-
           </div>
         </div>
       );
